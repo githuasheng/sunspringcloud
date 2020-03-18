@@ -6,10 +6,12 @@ import com.sun.springcloud.entities.Payment;
 import com.sun.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -39,5 +41,19 @@ public class PaymentController {
         }else{
             return new CommonResult(444, "查询失败"+id);
         }
+    }
+    @GetMapping(value = "/payment/discovery")//cloud-payment-service
+    public Object discovery(){
+        List<String> services = discoveryClient.getServices();
+        for (String element : services) {
+            System.out.println("****element:" + element);
+        }
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        for (ServiceInstance instance:instances) {
+            System.out.println(instance.getInstanceId()+":"+instance.getHost()+":"+instance.getPort()+"==>"+instance.getUri());
+        }
+
+        return this.discoveryClient;
     }
 }
