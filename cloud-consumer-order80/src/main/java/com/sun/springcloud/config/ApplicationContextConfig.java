@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
 
     @Bean
-    @LoadBalanced //如果多个微服务则需要这个注解开启负载均衡机制
+    //@LoadBalanced //如果多个微服务则需要这个注解开启负载均衡机制
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
