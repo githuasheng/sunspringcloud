@@ -61,4 +61,8 @@ public class PaymentController {
     public String getPaymentLB(){
         return servicePort;
     }
+
+    public String paymentFeignTimeout(){
+        return null;
+    }
 }

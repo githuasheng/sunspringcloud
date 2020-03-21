@@ -2,7 +2,7 @@ server:
   port: 80
 spring:
   application:
-    name: cloud-consumer-order
+    name: cloud-consumerconsul-order
   cloud:
     consul:
       host: localhost

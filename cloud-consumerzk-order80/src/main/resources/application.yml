@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: cloud-consumer-order
+    name: cloud-consumerzk-order
   cloud:
     zookeeper:
       connect-string: 192.168.239.129:2181
