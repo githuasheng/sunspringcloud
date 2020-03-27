@@ -11,10 +11,20 @@ spring:
           search-paths:  #搜索目录
             - spring-cloud
       label: master
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
         defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
-
+management:  #rabbitmq相关配置
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: huasheng
+  password: huasheng

@@ -9,6 +9,7 @@ spring:
       name: config  #配置文件名称
       profile: dev #读取后缀名称
       uri: http://localhost:3344
+
 eureka:
   client:
     fetch-registry: true
@@ -19,4 +20,10 @@ management: #暴露监控端点
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: "*"
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: huasheng
+  password: huasheng
