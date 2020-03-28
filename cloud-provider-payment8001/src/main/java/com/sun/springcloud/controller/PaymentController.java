@@ -65,4 +65,9 @@ public class PaymentController {
     public String paymentFeignTimeout(){
         return null;
     }
+
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin(){
+        return "*********zipkin: haha";
+    }
 }
