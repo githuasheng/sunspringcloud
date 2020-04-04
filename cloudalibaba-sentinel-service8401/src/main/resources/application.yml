@@ -1,0 +1,18 @@
+server:
+  port: 8401
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置nacos地址
+    sentinel:
+      transport:
+        port: 8719 #如果该端口占用则加1处理
+        dashboard: localhost:8080 #配置Sentinel dashboard地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
